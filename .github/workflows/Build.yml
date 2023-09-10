@@ -1,0 +1,21 @@
+name: Build CMake OBS Plugin
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install libobs
+        run: sudo apt-get install libobs-dev
+
+      - name: Build CMake
+        uses: ashutoshvarma/action-cmake-build@v1
